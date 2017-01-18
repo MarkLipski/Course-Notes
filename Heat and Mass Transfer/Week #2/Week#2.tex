@@ -1,0 +1,60 @@
+\documentclass[•]{article}
+
+\begin{document}
+\title{Heat and Mass Week 2}
+\maketitle
+\section*{Terminology}
+\section*{Convection Equation}
+Heat Convection is proportional to the temperature drop between the two mediums.
+
+\begin{equation}
+\dot{Q} = h_sA_s(T_s - T_{\infty})
+\end{equation}
+
+\subsection*{Problem 1}
+A heater is delivering heat to one end of an insulated rod, the other end is exposed to air.\\
+
+The problem can be solved by using the energy flowing into the system at one side of the system, and solving for the energy out at the other side of the system. The heat flux at one end of the system can be known, due to the presense of the heater.
+
+\begin{equation}
+\dot{Q} = P_{htr} = -kA_x\frac{dT}{dX}
+\end{equation}
+
+Due to the fact that there is no energy introduced in the rod, the temperature difference through the rod is a linear drop, hence there is a constant Q through the rod, this can be used to get the expression for one of the coefficients.
+
+\begin{equation}
+\frac{dT}{dx} = C_0 = \frac{-P_{htr}}{kA_x}
+\end{equation}
+
+Which can be substitued into the solution for the temperature as a function of x.
+\begin{equation}
+T(x) = \frac{-P_{htr}}{kA_x}x + C_1
+\end{equation}
+
+As the heat flux through the system is constant, the convection equation can be used to compute the temperature at the other end.
+
+\begin{equation}
+\dot{Q} = h_sA_s(T_s - T_{\infty}) = P_{htr}
+\end{equation}
+
+As $T_{\infty}$ is known, the temperature at the surface can be known. This allows for the coefficient to be found at the boundary.
+
+\section*{Radiation}
+The procedure for radiation is identical to convection, however the equation for radiation is:
+
+\begin{equation}
+\dot{Q} = \epsilon\sigma(T_s^4 - T_{\infty}^4)
+\end{equation}
+
+\section*{Interface Between Materials}
+The interface between two materials can be dealt with by setting the temperature and heat flux at the interface equal.
+
+\section*{Heat Generation in a Solid}
+The temperature profile in a solid with uniform energy generation should be computed using the standard equation from week 1.
+
+\subsection*{Example}
+Temperature profile in an insulated rod, with both ends exposed to the same temperature.
+
+
+
+\end{document}
