@@ -1,60 +1,44 @@
 \documentclass[•]{article}
+\usepackage{graphicx}
+\usepackage{float}
+
 
 \begin{document}
 \title{Heat and Mass Week 2}
 \maketitle
-\section*{Terminology}
-\section*{Convection Equation}
-Heat Convection is proportional to the temperature drop between the two mediums.
+\section*{Multilayer Plane Walls}
+The system can be made more complicated by putting two materials with different thermal conductivity in contact, and trying to solve the solution of the system as before. This can be seen below in figure 1.\\
 
-\begin{equation}
-\dot{Q} = h_sA_s(T_s - T_{\infty})
-\end{equation}
+The system is solvable, as at the interface of the two materials, the heat flux and temperature should be equivalent. This assumes the system is at steady state. The differential equations must be solved seperately for both materials, and the temperature profile as a function of x is going to be discontinuous at the boundary of the two materials.
 
-\subsection*{Problem 1}
-A heater is delivering heat to one end of an insulated rod, the other end is exposed to air.\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{TwoWall.png}
+\end{center}
+\caption{An image illustrating the ideal multilayer plane wall}
+\end{figure}
 
-The problem can be solved by using the energy flowing into the system at one side of the system, and solving for the energy out at the other side of the system. The heat flux at one end of the system can be known, due to the presense of the heater.
+One of the methods of modelling the temperature profile through the solid is calculating the equivalent thermal resistance of the different walls in series, using that to find the $\dot{Q}$ through the solid, and then further using that to calculate the temperature profile. In an analogy to circuits, the heat flux($\dot{Q}$) is current, and the temperature drop is voltage. 
 
-\begin{equation}
-\dot{Q} = P_{htr} = -kA_x\frac{dT}{dX}
-\end{equation}
+\section*{Split Plane Walls}
+One of the problems that may occur, is one in which the plane wall is split between two materials perpendicular to the direction of the heat flow. In order to solve these problems, it is assumed that the interface between the two plane walls is insulated, and that there is only heat flow in one direction (left to right in this instance).\\
 
-Due to the fact that there is no energy introduced in the rod, the temperature difference through the rod is a linear drop, hence there is a constant Q through the rod, this can be used to get the expression for one of the coefficients.
+In the analogy to circuits, the two walls can be modelled as resistors in parallel, and it's reduced to a circuits problem.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{SplitWall.png}
+\end{center}
+\caption{An image illustrating two walls are in contact parallel to the direction of heat flow}
+\end{figure}
 
-\begin{equation}
-\frac{dT}{dx} = C_0 = \frac{-P_{htr}}{kA_x}
-\end{equation}
+\section*{Spherical Walls}
+In the event of a spherical coordinate system, the equivalent resistance can be slightly harder to calculate.
 
-Which can be substitued into the solution for the temperature as a function of x.
-\begin{equation}
-T(x) = \frac{-P_{htr}}{kA_x}x + C_1
-\end{equation}
-
-As the heat flux through the system is constant, the convection equation can be used to compute the temperature at the other end.
-
-\begin{equation}
-\dot{Q} = h_sA_s(T_s - T_{\infty}) = P_{htr}
-\end{equation}
-
-As $T_{\infty}$ is known, the temperature at the surface can be known. This allows for the coefficient to be found at the boundary.
-
-\section*{Radiation}
-The procedure for radiation is identical to convection, however the equation for radiation is:
-
-\begin{equation}
-\dot{Q} = \epsilon\sigma(T_s^4 - T_{\infty}^4)
-\end{equation}
-
-\section*{Interface Between Materials}
-The interface between two materials can be dealt with by setting the temperature and heat flux at the interface equal.
-
-\section*{Heat Generation in a Solid}
-The temperature profile in a solid with uniform energy generation should be computed using the standard equation from week 1.
-
-\subsection*{Example}
-Temperature profile in an insulated rod, with both ends exposed to the same temperature.
-
-
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{SphericalWall.png}
+\end{center}
+\caption{An image illustrating walls that completely enclose a sphere of some fluid}
+\end{figure}
 
 \end{document}
