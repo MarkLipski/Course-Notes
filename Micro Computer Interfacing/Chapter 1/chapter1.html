@@ -1,0 +1,150 @@
+<img 
+src="chapter10x.png" alt="PICT" >
+                                                                  
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Microcomputer Interfacing Chapter 1 - Notes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="chapter1.tex"> 
+<link rel="stylesheet" type="text/css" href="chapter1.css"> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  <img 
+src="chapter11x.png" alt="PICT" >
+<img 
+src="chapter12x.png" alt="PICT" >
+                                                                  
+                                                                  <img 
+src="chapter13x.png" alt="PICT" >
+<img 
+src="chapter14x.png" alt="PICT" >
+                                                                  
+
+<h2 class="titleHead">Microcomputer Interfacing Chapter 1 - Notes</h2>
+<div class="author" ><span 
+class="cmr-12">Mark Lipski</span></div><br />
+<div class="date" ><span 
+class="cmr-12">January 18, 2017</span></div>
+   </div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Introduction</h3>
+<!--l. 25--><p class="noindent" >It&#8217;s rather difficult to explain the motivations behind microcomputer interfacing
+without first understanding what a micro controller is. Most people are relatively well
+acquainted with microprocessors, they&#8217;re what power phones, or any personal
+computer. Micro-controllers on the other hand function as low power digital
+control systems and are found in a significant portion of your household
+electronics.
+<!--l. 27--><p class="indent" >   There are a number of differences between micro-controllers and microprocessors.
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-20001.1"></a>Microprocessors</h4>
+<!--l. 29--><p class="noindent" >Pros
+     <ul class="itemize1">
+     <li class="itemize">High Data Throughput
+     </li>
+     <li class="itemize">Large quantities of memory
+     </li>
+     <li class="itemize">Operating system</li></ul>
+<!--l. 35--><p class="noindent" >Cons
+     <ul class="itemize1">
+     <li class="itemize">High power usage
+     </li>
+     <li class="itemize">High latency
+                                                                  <img 
+src="chapter15x.png" alt="PICT" >
+<img 
+src="chapter16x.png" alt="PICT" >
+                                                                  
+     </li>
+     <li class="itemize">Restricted to whatever peripherals can be interfaced via usb through the
+     motherboard
+     </li>
+     <li class="itemize">Expensive</li></ul>
+<!--l. 43--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
+ id="x1-30001.2"></a>Micro-controllers</h4>
+<!--l. 44--><p class="noindent" >Pros
+     <ul class="itemize1">
+     <li class="itemize">Substantial number of different micro-controllers available, can usually
+     find a micro that meets your system requirements
+     </li>
+     <li class="itemize">Can be extremely low power
+     </li>
+     <li class="itemize">Can interface a substantial number of peripherals</li></ul>
+<!--l. 51--><p class="indent" >   Cons
+     <ul class="itemize1">
+     <li class="itemize">Low data processing capacity</li></ul>
+<!--l. 56--><p class="noindent" >
+   <h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a 
+ id="x1-40001.3"></a>Hardware Differences</h4>
+<!--l. 57--><p class="noindent" >A microprocessor almost always has RAM, as well as a relatively long pipeline.
+Micro-controllers(MCUs) are typically single core processors with a relatively short
+pipeline between 1-7 stages, micro-controllers don&#8217;t usually have RAM, and instead
+rely upon flash memory to store both data and program code. Most MCUs also have
+a substantially lower clock rate of between (10-500)MHz.<br 
+class="newline" />
+<!--l. 59--><p class="indent" >   It should be noted that the classification of a processor isn&#8217;t black and white,
+many of the characteristics of MCUs and microprocessors can be interchanged, for
+instance, there can be an MCU with a substantially higher clock rate of around
+300MHz which is substantially better at processing data, however it still may not
+have RAM or an operating system, and would likely still be classified as an
+MCU.
+<!--l. 61--><p class="indent" >   These are all the superficial differences between MCUs and microprocessors, and
+essentially all you need to understand for micro computer interface.
+                                                                  <img 
+src="chapter17x.png" alt="PICT" >
+<img 
+src="chapter18x.png" alt="PICT" >
+                                                                  
+<!--l. 63--><p class="noindent" >
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-50002"></a>Course Motivations</h3>
+<!--l. 64--><p class="noindent" >Now that you have an idea of what an MCU is, hopefully you can now derive some
+reasons for learning the information in this course.<br 
+class="newline" />
+<!--l. 66--><p class="indent" >   MCUs are often used in control systems. They can be very digital in
+nature, or even replace analog control systems due to their diversity and how
+inexpensive they are. They can be used in DSP(Digital Signal Processing)
+applications, control a car, run your microwave, or any given number of
+applications.<br 
+class="newline" />
+<!--l. 68--><p class="indent" >   Some more interesting examples of MCU use would be something like a fitbit. A
+fitbit is essentially an accelerometer hooked up to an MCU which then transmits the
+accelerometer data via bluetooth to your phone.//
+<!--l. 70--><p class="indent" >   Important topics in Microcomputer interfacing are:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x1-5002x1">How to write low level C code and assembly to code on an MCU
+     </li>
+     <li 
+  class="enumerate" id="x1-5004x2">How to choose an appropriate micro for a given application
+     </li>
+     <li 
+  class="enumerate" id="x1-5006x3">Understand and be able to utilize the standard peripherals on most MCUs
+     </li>
+     <li 
+  class="enumerate" id="x1-5008x4">Get some practice reading technical documentation
+     </li>
+     <li 
+  class="enumerate" id="x1-5010x5">How to physically wire and interface an MCU
+     </li>
+     <li 
+  class="enumerate" id="x1-5012x6">How  to  properly  debug  an  MCU  using  both  software  and  hardware
+     approaches.</li></ol>
+<!--l. 79--><p class="noindent" >Point number 3) is what will take up the bulk mass of the material in these notes, as
+there is are a substantial number of peripherals for MCUs.<br 
+class="newline" />
+<!--l. 81--><p class="indent" >   Unfortunately point number 4) isn&#8217;t something that can be taught and
+must be learned over time spent working with technical documentation.
+ 
+</body></html> 
+
+                                                                  <img 
+src="chapter19x.png" alt="PICT" >
+
+
