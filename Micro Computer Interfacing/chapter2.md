@@ -159,6 +159,7 @@ while(i != lim) {
 	printChar(string[i]); 
 	i++; 
 }   
+```
 ![xPSR](https://github.com/MarkLipski/Course-Notes/blob/master/Micro%20Computer%20Interfacing/images/Condition%20Code%20Suffixes.JPG "Figure 2: List of Condition Suffixes from the ARM Website")
 
 The corresponding assembly code is as follows:
