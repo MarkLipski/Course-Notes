@@ -1,7 +1,6 @@
 ---
-author:
-- Mark Lipski
-title: 'Microcomputer Interfacing Chapter 1 - Notes'
+## author: Mark Lipski
+# Microcomputer Interfacing Chapter 1 - Notes
 ---
 
 Introduction
@@ -63,7 +62,7 @@ pipeline. Micro-controllers(MCUs) are typically single core processors
 with a relatively short pipeline between 1-7 stages, micro-controllers
 don’t usually have RAM, and instead rely upon flash memory to store both
 data and program code. Most MCUs also have a substantially lower clock
-rate of between (10-500)MHz.\
+rate of between (10-500)MHz.
 It should be noted that the classification of a processor isn’t black
 and white, many of the characteristics of MCUs and microprocessors can
 be interchanged, for instance, there can be an MCU with a substantially
@@ -79,16 +78,16 @@ Course Motivations
 ==================
 
 Now that you have an idea of what an MCU is, hopefully you can now
-derive some reasons for learning the information in this course.\
+derive some reasons for learning the information in this course.
 MCUs are often used in control systems. They can be very digital in
 nature, or even replace analog control systems due to their diversity
 and how inexpensive they are. They can be used in DSP(Digital Signal
 Processing) applications, control a car, run your microwave, or any
-given number of applications.\
+given number of applications.
 Some more interesting examples of MCU use would be something like a
 fitbit. A fitbit is essentially an accelerometer hooked up to an MCU
 which then transmits the accelerometer data via bluetooth to your
-phone.//
+phone.
 
 Important topics in Microcomputer interfacing are:
 
@@ -108,6 +107,6 @@ Important topics in Microcomputer interfacing are:
 
 Point number 3) is what will take up the bulk mass of the material in
 these notes, as there is are a substantial number of peripherals for
-MCUs.\
+MCUs.
 Unfortunately point number 4) isn’t something that can be taught and
 must be learned over time spent working with technical documentation.
