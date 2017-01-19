@@ -107,7 +107,6 @@ Conditional and if statements can be implemented in assembly using codes which c
 Appending the condition codes to the end of an instruction ensures that the instruction will only be executed if the condition is met.
 
 \subsection{Example 2 - Branching and Conditionals}
-The C code might look something like: 
 \begin{lstlisting}[language={C}]
 char *string = 25031; 
 int i = 0; 
@@ -117,23 +116,26 @@ while(i != lim) {
 	i++; 
 }	
 \end{lstlisting}
-
-There are going to be a few pieces of assembly you might not understand but I'll explain after. \\
+The corresponding assembly code is as follows:\\
 \textbf{\indent \indent\indent MOV r4, \#25031} \\
 \indent\indent\indent\textbf{MOV r3, \#0} \\
 \indent\indent\indent\textbf{MOV r5, \#10} //The end condition of the loop\\
-\textbf{loop    \indent    LDR r0, [r4]} \\
+\textbf{loop\ \indent \ LDR r0, [r4]} \\
 \indent\indent\indent\textbf{CMP r3, r5} //Compares r3 to r5\\
 \indent\indent\indent\textbf{BL printChar} //Branches to printChar label \\
 \indent\indent\indent\textbf{ADD r3, \#1} //Increments the loop by one \\
 \indent\indent\indent\textbf{ADD r4, \#1} //Increments the address of the char array\\
 \indent\indent\indent\textbf{BNE loop} //Branches if the NE flag is set in the PSR\\
 
-There are two points which should stand out in the assembly code above. \\ \\ 
-The first of which is the loop label on the 4th line of the assembly code. The "loop" label signifies to the linker that any instances of "loop" in the code will reference the line of code where the label "loop" was declared. The program branches to that line, therefore creating a loop. \\ \\
-The second of which should be the \textbf{BL} instruction code. The only difference between this and a normal branch is that it writes the PC + 1 to the link register(LR). The incentive for this being that you can reference any function from any piece of assembly code, provided you provide a return address in the LR. Consider a scenario where you branch to a random C function. The C function has no record of where the Program Counter (PC) has been, and hence it has no way to return from the function call. However, since we used the BL function the address of the line we left in the assembly code was stored and the program will resume from there once \\
+There are two important lines of code in the example.
+\begin{enumerate}
+\item The loop label on the 4th line of the assembly code. The \textbf{"loop"} label signifies to the linker script that any instances of "loop" in the code will reference the line of code where the label "loop" was declared. The program branches to that line, therefore creating a loop.\\
 
-\* One thing worth mentioning is that I've assumed that the memory address format is that of a byte offset. So as the char data type is a byte long, I add 1 to increment the position in the array. \\
+For example, if the loop label was on line 56 in the compiled assembly code, the linker would run through the compiled code, replacing the loop label at the final \textbf{BNE} with the number 56 in binary.
+\item The second of which should be the \textbf{BL} instruction code. The only difference between this and a normal branch is that it writes the PC + 1 to the link register(LR). The incentive for this being that you can reference any function from any piece of assembly code, provided you provide a return address in the LR.\\
+ 
+Consider a scenario where you branch to a random C function. The C function has no record of where the Program Counter (PC) has been, and hence it has no way to return from the function call. However, since we used the BL function, the address of the line we branched from in the assembly code was stored and the program will resume from there.\\
+\end{enumerate}
 
 There are many textbooks dedicated to assembly code, so this is just designed to act as a very basic reference to get you started.
 
@@ -153,9 +155,9 @@ The Cycles per instruction and clock frequency of the computer can be used to de
 In total the loop executes in 7 clock cycles, excluding the startup and end cases. Given a clock frequency of 300MHz, the loop will execute in 23.3nS.
 
 \section{Writing Low Level C}
-There are several differences involved in writing C effective C code for MCUs compared to standard C code. For instance, if the MCU being used doesn't have an operating system, concepts involving dynamic memory allocation simply don't exist. C for MCUs are going to require some important binary operators. \href{http://www.tutorialspoint.com/cprogramming/c_bitwise_operators.htm}{This} reference details all the different bitwise operators that will be required to control registers and peripherals in C.\\
+There are several differences involved in writing effective C code for MCUs compared to standard C code. For instance, if the MCU being used doesn't have an operating system, concepts involving dynamic memory allocation simply don't exist. Microcontroller interfacing often requires having explicit control of binary data, hence understanding how to do bitwise operations in C. \href{http://www.tutorialspoint.com/cprogramming/c_bitwise_operators.htm}{This} reference details all the different bitwise operators that will be required to control registers and peripherals in C.\\
 
-It's also good to understand how to utilize different data sizes. Depending on your C compiler there are different data types that correspond to different register and data sizes. \\
+It's also useful to understand how to utilize different data sizes. Depending on your C compiler there are different data types that correspond to different register and data sizes. \\
 
 If you need to perform an operation involving a byte, the char datatype can usually be used, as chars are 8 bits. If you need uint8\_t can also be used, as well as uint16\_t and uint32\_t, provided your MCU goes up to 32 bit registers.
 
