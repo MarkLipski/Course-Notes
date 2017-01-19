@@ -25,7 +25,7 @@ important to programming in assembly.
     on the state of the program, primarily useful for
     debugging programs.
 
-![](/images/xPSR%20-%20Cortex%20M4.JPG)
+![](https://github.com/MarkLipski/Course-Notes/tree/master/Micro%20Computer%20Interfacing/images/xPSR%20-%20Cortex%20M4.JPG)
 *A diagram of the program status register for the Cortex M4 MCU*
 
 Assembly Language
