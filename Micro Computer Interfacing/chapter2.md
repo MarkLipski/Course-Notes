@@ -214,7 +214,7 @@ execute. The cycles per instruction for the Cortex M4 can be found
 You should be able to find the CPI by googling the name of your
 processor, followed by CPI.
 ```
-loop 	LDR r0, r4 		//LDR has a CPI of 1
+loop 	LDR r0, [r4] 		//LDR has a CPI of 1
 		CMP r3, r5 		//CMP has a CPI of 1
 		LSR r0, 2 		//LSR has a CPI of 1
 		STR r0, [r4] 	//STR has a CPI of 1
