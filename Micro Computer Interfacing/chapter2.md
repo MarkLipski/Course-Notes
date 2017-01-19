@@ -210,7 +210,7 @@ execute. The cycles per instruction for the Cortex M4 can be found
 [here.](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0439b/CHDDIGAC.html)
 You should be able to find the CPI by googling the name of your
 processor, followed by CPI.
-
+```assembly
 **loop LDR r0, \[r4\]** //LDR has a CPI of 1
 **CMP r3, r5** //CMP has a CPI of 1
 **LSR r0, 2** //LSR has a CPI of 1
@@ -218,6 +218,7 @@ processor, followed by CPI.
 **ADD r3, \#1** //ADD has a CPI of 1
 **ADD r4, \#1** //ADD has a CPI of 1
 **BNE loop** //B has a CPI of 1, given that it will predict branch
+```
 taken
 In total the loop executes in 7 clock cycles, excluding the startup and
 end cases. Given a clock frequency of 300MHz, the loop will execute in
