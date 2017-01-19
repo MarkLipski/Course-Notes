@@ -162,15 +162,17 @@ Example 2 - Branching and Conditionals
     }   
 
 The corresponding assembly code is as follows:
-**MOV r4, \#25031**
-**MOV r3, \#0**
-**MOV r5, \#10** //The end condition of the loop
-**loop  LDR r0, \[r4\]**
-**CMP r3, r5** //Compares r3 to r5
-**BL printChar** //Branches to printChar label
-**ADD r3, \#1** //Increments the loop by one
-**ADD r4, \#1** //Increments the address of the char array
-**BNE loop** //Branches if the NE flag is set in the PSR
+```assembly
+	MOV r4, \#25031**
+	MOV r3, \#0**
+	MOV r5, \#10** //The end condition of the loop
+loop  	LDR r0, \[r4\]**
+	CMP r3, r5** //Compares r3 to r5
+	BL printChar** //Branches to printChar label
+	ADD r3, \#1** //Increments the loop by one
+	ADD r4, \#1** //Increments the address of the char array
+	BNE loop** //Branches if the NE flag is set in the PSR
+```
 There are two important lines of code in the example.
 
 1.  The loop label on the 4th line of the assembly code. The **“loop”**
@@ -212,12 +214,12 @@ You should be able to find the CPI by googling the name of your
 processor, followed by CPI.
 ```assembly
 loop 	LDR r0, r4 //LDR has a CPI of 1
-	CMP r3, r5 //CMP has a CPI of 1
-	LSR r0, 2 //LSR has a CPI of 1
-	STR r0, [r4] //STR has a CPI of 1
-	ADD r3, #1 //ADD has a CPI of 1
-	ADD r4, #1 //ADD has a CPI of 1
-	BNE loop //B has a CPI of 1, given that it will predict branch
+		CMP r3, r5 #CMP has a CPI of 1
+		LSR r0, 2 #LSR has a CPI of 1
+		STR r0, [r4] #STR has a CPI of 1
+		ADD r3, #1 #ADD has a CPI of 1
+		ADD r4, #1 #ADD has a CPI of 1
+		BNE loop #B has a CPI of 1, given that it will predict branch
 ```
 taken
 In total the loop executes in 7 clock cycles, excluding the startup and
