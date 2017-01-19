@@ -1,8 +1,10 @@
 \BOOKMARK [1][-]{section.1}{The Hardware and Architecture}{}% 1
 \BOOKMARK [1][-]{section.2}{Assembly Language}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Example 1}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Register List}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Conditionals}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Example 2 - Branching and Conditionals}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Assembly Execution Time}{}% 7
-\BOOKMARK [1][-]{section.4}{Writing Low Level C}{}% 8
+\BOOKMARK [2][-]{subsection.2.1}{Assembly's Relevance}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Programming in Assembly}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Example 1}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Register List}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Conditionals}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Example 2 - Branching and Conditionals}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Assembly Execution Time}{}% 9
+\BOOKMARK [1][-]{section.4}{Writing Low Level C}{}% 10

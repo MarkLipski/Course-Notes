@@ -6,7 +6,7 @@
 \usepackage{hyperref}
 
 \usepackage{amsmath}
-
+\usepackage{listings}
 \usepackage[final]{pdfpages}
 
 \usepackage{amsfonts}
@@ -25,11 +25,11 @@
 
 \maketitle
 \section{The Hardware and Architecture}
-Before I get into how to program an MCU, the generalized MCU architecture and assembly instructions should first be covered.\\
+Before learning how to program, generalized MCU architecture and assembly instructions should first be covered.\\
 
-General core computer architecture components found in almost all MCUs important to programming
+The following components can be found in almost all MCUs and are important to programming in assembly.
 \begin{itemize}
-\item ALU(Arithmetic Logic Unit) - Should be familiar, used for arithmetic operations such as addition, subtraction, and logical operations such as comparisons, and's, or's, etc.
+\item ALU(Arithmetic Logic Unit) - Used for arithmetic operations such as addition, subtraction, and logical operations such as comparisons, and's, or's, etc.
 \item Barrel Shifter - Used for logical shift operations, will be covered later
 \item Multiplier/Divider - Used for multiplication operations
 \item FPU - Used to handle any floating point operations
@@ -37,18 +37,20 @@ General core computer architecture components found in almost all MCUs important
 \end{itemize}
 
 \begin{figure}[H]
-\includegraphics[scale = 0.78]{"xPSR - Cortex M4".jpg}
+\includegraphics[scale = 0.78]{"xPSR - Cortex M4".JPG}
 \caption{A diagram of the program status register for the Cortex M4 MCU, directly from ARMs website}
 \end{figure}
 
 \section{Assembly Language}
-What is assembly? Assembly is essentially the lowest level programming language that exists. In assembly there aren't any variables, but rather you must manually control the flow of data between registers, the stack and memory. \\
+Unlike higher level languages like C, assembly language gives the programmer direct control over the operations that the CPU components are performing. In assembly there aren't any variables, but rather you must manually control the flow of data between registers, the stack, and memory. \\
 
-Assembly is relatively important to understand, as it gives the programmer additional control and precision compared to C. However it should be noted that assembly has its place, and the vast majority of MCU programming will be performed in a higher level language like C. The reason for this is that most C compilers will be able to write cleaner, safer, more efficient assembly code than you can, while simultaneously being more comprehensive to both read and write.\\
+\subsection{Assembly's Relevance}
+Assembly is important to understand, as it gives the programmer additional control and precision compared to C. However it should be noted that assembly has its place, and the vast majority of MCU programming will be performed in a higher level language like C. Most C compilers will be able to write cleaner, safer, more efficient assembly code than you can, while simultaneously being more comprehensive to both read and write.\\
 
 Assembly can be used when you need explicit control over the content in registers or regions in memory, or if you need very explicit control over the timing of a block of code.\\
 
-Programming in assembly involves writing instructions line by line, which are binary codes fed into the processor. Each instruction corresponds to some operation to be performed by the processor. These operations involve the hardware architecture components outlined earlier. For instance, an ADD assembly instruction might take the value from two registers, add them, and then store the result in another register. \\
+\subsection{Programming in Assembly}
+Programming in assembly involves writing instructions line by line, which are translated into binary codes and fed into the processor. Each instruction corresponds to some operation to be performed by the processor. These operations involve the hardware architecture components outlined earlier. For instance, an ADD assembly instruction might take the value from two registers, add them, and then store the result in another register. \\
 
 Registers are an array of flip flops which have a set length, based upon the architecture of your processor. If your processor has 32 bit registers, a single register can store integers up to $2^{32}-1$. Common register lengths are 8, 16, 24, 32 and 64 bit registers. The majority of modern MCUs require all data to flow through registers. What this means is that in order to utilize any of your processor's hardware components, you must pass data through the registers in your processor. \\
 
@@ -77,16 +79,18 @@ For more details, the reference manual for your ARM processor should be consulte
 \textbf{LSR r0, \#2} //Shifts the value loaded into r0 left by 2, effectively multiplies by 4\\
 \textbf{STR r0, [r2]} //Stores the value stored in r0 at the location of r2\\
 
-The equivalent C code might look something like\\
-\textbf{int num1 = 15; \\
-int num2 = 3; \\
-int *num3 = (int*)(num1 + num2); \\
-*num3 = (*num3) << 2;} //The logical shift operation in C\\ \\
+The equivalent C code might look something like
+\begin{lstlisting}[language=C]
+int num1 = 15;
+int num2 = 3;
+int *num3 = (int*)(num1 + num2);
+*num3 = (*num3) << 2; //The logical shift operation in C
+\end{lstlisting}
 
-Obviously the C code itself isn't anything useful, and hence neither is the assembly, it's just meant to demonstrate how you might use registers to perform arithmetic and memory operations.
+The C code doesn't do anything useful, and the assembly is as also redundant, however the code should demonstrate how to use registers to perform arithmetic and memory operations.
 
 \subsection{Register List}
-Most MCUs have a different number of general purpose registers, but a standard set of special purpose register.
+Most MCUs have a different number of general purpose registers, as well as a standard set of special purpose registers.
 \begin{itemize}
 \item PC(Program Counter) - The program counter contains the value of the current line of code that is being run.
 \item LR(Link Register) - Used for storing the return address when branching and returning from functions.
@@ -96,21 +100,23 @@ Most MCUs have a different number of general purpose registers, but a standard s
 \subsection{Conditionals}
 Conditional and if statements can be implemented in assembly using codes which can get appended to the end of every instruction. 
 \begin{figure}[H]
-\includegraphics[scale = 0.78]{"Condition Code Suffixes".jpg}
+\includegraphics[scale = 0.78]{"Condition Code Suffixes".JPG}
 \caption{List of Condition Code Suffixes from the ARM website}
 \end{figure}
 
 Appending the condition codes to the end of an instruction ensures that the instruction will only be executed if the condition is met.
 
 \subsection{Example 2 - Branching and Conditionals}
-The C code might look something like: \\
-char *string = 25031; \\
-int i = 0; \\
-int lim = 10; \\
-while(i != lim) \{ \\
-\indent printChar(string[i]); \\
-\indent i++; \\
-\}	\\
+The C code might look something like: 
+\begin{lstlisting}[language={C}]
+char *string = 25031; 
+int i = 0; 
+int lim = 10;
+while(i != lim) { 
+	printChar(string[i]); 
+	i++; 
+}	
+\end{lstlisting}
 
 There are going to be a few pieces of assembly you might not understand but I'll explain after. \\
 \textbf{\indent \indent\indent MOV r4, \#25031} \\
