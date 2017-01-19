@@ -25,8 +25,7 @@ important to programming in assembly.
     on the state of the program, primarily useful for
     debugging programs.
 
-![](https://github.com/MarkLipski/Course-Notes/tree/master/Micro%20Computer%20Interfacing/images/xPSR%20-%20Cortex%20M4.JPG)
-*A diagram of the program status register for the Cortex M4 MCU*
+![xPSR](https://github.com/MarkLipski/Course-Notes/blob/master/Micro%20Computer%20Interfacing/images/xPSR%20-%20Cortex%20M4.JPG "Figure 1: A diagram of the program status register for the Cortex M4 MCU")
 
 Assembly Language
 =================
@@ -148,6 +147,8 @@ which can get appended to the end of every instruction.
 Appending the condition codes to the end of an instruction ensures that
 the instruction will only be executed if the condition is met.
 
+
+
 Example 2 - Branching and Conditionals
 --------------------------------------
 ```{.c language="C"}
@@ -158,7 +159,8 @@ while(i != lim) {
 	printChar(string[i]); 
 	i++; 
 }   
-```
+![xPSR](https://github.com/MarkLipski/Course-Notes/blob/master/Micro%20Computer%20Interfacing/images/Condition%20Code%20Suffixes.JPG "Figure 2: List of Condition Suffixes from the ARM Website")
+
 The corresponding assembly code is as follows:
 ```
 		MOV r4, #25031
