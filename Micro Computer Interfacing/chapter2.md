@@ -103,16 +103,12 @@ consulted.
 Example 1
 ---------
 ```assembly
-MOV r0, #15 //Moves the integer value 15 into register 0\
-MOV r1, #3 //Moves the integer value 3 into register 1\
-ADD r0, r1, r2 //Adds the values stored in register 0 and 1 and
-stores the result in register 2\
-LDR r0, [r2] //Loads the value at the address of register 2, and
-stores it in register 0\
-LSR r0, #2 //Shifts the value loaded into r0 left by 2, effectively
-multiplies by 4
-STR r0, [r2] //Stores the value stored in r0 at the location of
-r2
+MOV r0, #15 	//Moves the integer value 15 into register 0
+MOV r1, #3 	//Moves the integer value 3 into register 1
+ADD r0, r1, r2 	//Adds the values stored in register 0 and 1 and stores the result in register 2
+LDR r0, [r2] 	//Loads the value at the address of register 2, and stores it in register 0
+LSR r0, #2 	//Shifts the value loaded into r0 left by 2, effectively multiplies by 4
+STR r0, [r2] 	//Stores the value stored in r0 at the location of r2
 ```
 The equivalent C code might look something like
 
