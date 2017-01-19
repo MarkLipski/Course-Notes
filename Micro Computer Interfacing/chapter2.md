@@ -1,7 +1,6 @@
----
+
 ## Microcomputer Interfacing Ch. 2 - Programming
-Author: Mark Lipski
----
+#### Author: Mark Lipski
 
 The Hardware and Architecture
 =============================
