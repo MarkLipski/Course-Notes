@@ -102,17 +102,18 @@ consulted.
 
 Example 1
 ---------
-
-**MOV r0, \#15** //Moves the integer value 15 into register 0\
-**MOV r1, \#3** //Moves the integer value 3 into register 1\
-**ADD r0, r1, r2** //Adds the values stored in register 0 and 1 and
+```assembly
+MOV r0, #15 //Moves the integer value 15 into register 0\
+MOV r1, #3 //Moves the integer value 3 into register 1\
+ADD r0, r1, r2 //Adds the values stored in register 0 and 1 and
 stores the result in register 2\
-**LDR r0, \[r2\]** //Loads the value at the address of register 2, and
+LDR r0, [r2] //Loads the value at the address of register 2, and
 stores it in register 0\
-**LSR r0, \#2** //Shifts the value loaded into r0 left by 2, effectively
-multiplies by 4\
-**STR r0, \[r2\]** //Stores the value stored in r0 at the location of
-r2\
+LSR r0, #2 //Shifts the value loaded into r0 left by 2, effectively
+multiplies by 4
+STR r0, [r2] //Stores the value stored in r0 at the location of
+r2
+```
 The equivalent C code might look something like
 
 ``` {.c language="C"}
@@ -163,15 +164,15 @@ Example 2 - Branching and Conditionals
 
 The corresponding assembly code is as follows:
 ```assembly
-	MOV r4, \#25031**
-	MOV r3, \#0**
-	MOV r5, \#10** //The end condition of the loop
-loop  	LDR r0, \[r4\]**
-	CMP r3, r5** //Compares r3 to r5
-	BL printChar** //Branches to printChar label
-	ADD r3, \#1** //Increments the loop by one
-	ADD r4, \#1** //Increments the address of the char array
-	BNE loop** //Branches if the NE flag is set in the PSR
+		MOV r4, #25031
+		MOV r3, #0
+		MOV r5, #10 //The end condition of the loop
+loop  	LDR r0, [r4]
+		CMP r3, r5 //Compares r3 to r5
+		BL printChar //Branches to printChar label
+		ADD r3, #1 //Increments the loop by one
+		ADD r4, #1 //Increments the address of the char array
+		BNE loop //Branches if the NE flag is set in the PSR
 ```
 There are two important lines of code in the example.
 
